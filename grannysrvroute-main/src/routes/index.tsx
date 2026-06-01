@@ -4,6 +4,37 @@ import heroBg from "@/assets/granny-hero.png";
 import logo from "@/assets/grannys-route-logo.png";
 import rangerSquadCover from "@/assets/ranger-squad-cover.jpg";
 
+// Move static data outside component to prevent recreation on render
+const socialLinks: { label: string; href: string; Icon: React.ComponentType<{ className?: string; "aria-hidden"?: boolean | "true" | "false" }> }[] = [
+  { label: "Facebook", href: "https://facebook.com/grannysroute", Icon: Facebook },
+  { label: "Instagram", href: "https://instagram.com/grannysroute", Icon: Instagram },
+  { label: "YouTube", href: "https://youtube.com/@grannysroute", Icon: Youtube },
+  { label: "Pinterest", href: "https://pinterest.com/grannysroute", Icon: PinterestIcon },
+  { label: "TikTok", href: "https://tiktok.com/@grannysroute", Icon: TikTokIcon },
+];
+
+const quickLinks: { label: string; href: string }[] = [
+  { label: "Amazon", href: "https://www.amazon.com" },
+  { label: "Gumroad", href: "https://gumroad.com" },
+  { label: "Walmart", href: "https://www.walmart.com" },
+  { label: "Etsy", href: "https://www.etsy.com" },
+  { label: "Upside", href: "https://www.upside.com" },
+  { label: "GasBuddy", href: "https://www.gasbuddy.com" },
+  { label: "Visible", href: "https://www.visible.com" },
+  { label: "Kindle", href: "https://www.amazon.com/kindle-dbs/storefront" },
+];
+
+const trails = [
+  { name: "GrannysRoute", distance: "", note: "The safety-first navigational companion." },
+  { name: "Granny's RV Garage", distance: "", note: "Safety begins with our rig. Maintenance tracker and receipt storage." },
+  { name: "RVBridgesafe", distance: "", note: "Checks for bridge heights for safest route." },
+  { name: "Granny's RV Pre-trip Check", distance: "", note: "Pack up! Be road ready." },
+  { name: "Granny's Solar Weekend Power Check", distance: "", note: "Will I have enough power?" },
+];
+
+// Calculate year once at module load to avoid recreating on every render
+const CURRENT_YEAR = new Date().getFullYear();
+
 export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
@@ -230,12 +261,6 @@ function Index() {
       </section>
       </main>
 
-
-
-
-
-
-
       <footer className="px-6 md:px-12 py-8 border-t border-border flex flex-col items-center gap-6 text-xs text-muted-foreground">
         <img src={logo} alt="Granny's Route logo" className="w-12 h-12 rounded-full" />
         <div className="flex flex-col items-center gap-1 text-sm text-foreground">
@@ -243,7 +268,7 @@ function Index() {
           <a href="mailto:grannysroute@gmail.com" className="hover:text-accent transition">grannysroute@gmail.com</a>
         </div>
         <div className="flex flex-col sm:flex-row items-center justify-between gap-2 w-full pt-4">
-          <span>© {new Date().getFullYear()} Granny's Route. Walk gently.</span>
+          <span>© {CURRENT_YEAR} Granny's Route. Walk gently.</span>
           <span className="font-display italic text-accent">An adventure awaits.</span>
         </div>
       </footer>
@@ -255,40 +280,12 @@ type IconProps = { className?: string; "aria-hidden"?: boolean | "true" | "false
 
 const PinterestIcon = ({ className, ...rest }: IconProps) => (
   <svg viewBox="0 0 24 24" fill="currentColor" className={className} {...rest}>
-    <path d="M12 0a12 12 0 0 0-4.37 23.17c-.1-.94-.2-2.4.04-3.43.22-.93 1.4-5.94 1.4-5.94s-.36-.72-.36-1.78c0-1.67.97-2.92 2.18-2.92 1.03 0 1.52.77 1.52 1.7 0 1.03-.66 2.58-1 4.02-.29 1.2.6 2.18 1.78 2.18 2.14 0 3.78-2.26 3.78-5.51 0-2.88-2.07-4.9-5.02-4.9-3.42 0-5.43 2.57-5.43 5.22 0 1.03.4 2.14.9 2.75.1.12.11.22.08.34l-.33 1.36c-.05.22-.17.27-.4.16-1.5-.7-2.43-2.88-2.43-4.64 0-3.78 2.74-7.25 7.9-7.25 4.15 0 7.37 2.96 7.37 6.92 0 4.13-2.6 7.45-6.21 7.45-1.22 0-2.36-.63-2.75-1.38l-.75 2.85c-.27 1.04-1 2.35-1.49 3.15A12 12 0 1 0 12 0z" />
+    <path d="M12 0a12 12 0 0 0-4.37 23.17c-.1-.94-.2-2.4.04-3.43.22-.93 1.4-5.94 1.4-5.94s-.36-.72-.36-1.78c0-1.67.97-2.92 2.18-2.92 1.03 0 1.52.77 1.52 1.7 0 1.03-.66 2.58-1 4.02-.29 1.2.6 2.18 1.86 2.18 2.22 0 3.93-2.34 3.93-5.74 0-3-2.12-5.17-5.17-5.17-3.5 0-5.55 2.62-5.55 5.33 0 1.04.4 2.15.9 2.75a.3.3 0 0 1 .07.29l-.36 1.39c-.05.22-.19.27-.41.16-1.44-.67-2.35-2.76-2.35-4.44 0-3.64 2.65-6.98 7.65-6.98 4.02 0 7.13 2.86 7.13 6.68 0 3.99-2.52 7.21-6.02 7.21-1.17 0-2.27-.6-2.64-1.32l-.72 2.73c-.26 1.01-1.02 2.28-1.52 3.05A12 12 0 0 0 12 0z" />
   </svg>
 );
 
 const TikTokIcon = ({ className, ...rest }: IconProps) => (
   <svg viewBox="0 0 24 24" fill="currentColor" className={className} {...rest}>
-    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.14V9.4a6.84 6.84 0 0 0-1-.07A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43V8.79a8.16 8.16 0 0 0 4.77 1.52V6.85a4.85 4.85 0 0 1-1.84-.16z" />
+    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.14V9.4a6.84 6.84 0 0 0-1-.07A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 11.37-3.86 6.34 6.34 0 0 0 6.38-6.25c0-.34 0-.7-.02-1.05a4.76 4.76 0 0 0 3.54-4.53v-3.2a8 8 0 0 1-4.63 1.48z" />
   </svg>
 );
-
-const socialLinks: { label: string; href: string; Icon: React.ComponentType<IconProps> }[] = [
-  { label: "Facebook", href: "https://facebook.com/grannysroute", Icon: Facebook },
-  { label: "Instagram", href: "https://instagram.com/grannysroute", Icon: Instagram },
-  { label: "YouTube", href: "https://youtube.com/@grannysroute", Icon: Youtube },
-  { label: "Pinterest", href: "https://pinterest.com/grannysroute", Icon: PinterestIcon },
-  { label: "TikTok", href: "https://tiktok.com/@grannysroute", Icon: TikTokIcon },
-];
-
-const quickLinks: { label: string; href: string }[] = [
-  { label: "Amazon", href: "https://www.amazon.com" },
-  { label: "Gumroad", href: "https://gumroad.com" },
-  { label: "Walmart", href: "https://www.walmart.com" },
-  { label: "Etsy", href: "https://www.etsy.com" },
-  { label: "Upside", href: "https://www.upside.com" },
-  { label: "GasBuddy", href: "https://www.gasbuddy.com" },
-  { label: "Visible", href: "https://www.visible.com" },
-  { label: "Kindle", href: "https://www.amazon.com/kindle-dbs/storefront" },
-];
-
-const trails = [
-  { name: "GrannysRoute", distance: "", note: "The safety-first navigational companion." },
-  { name: "Granny's RV Garage", distance: "", note: "Safety begins with our rig. Maintenance tracker and receipt storage." },
-  { name: "RVBridgesafe", distance: "", note: "Checks for bridge heights for safest route." },
-  { name: "Granny's RV Pre-trip Check", distance: "", note: "Pack up! Be road ready." },
-  { name: "Granny's Solar Weekend Power Check", distance: "", note: "Will I have enough power?" },
-];
-
