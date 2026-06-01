@@ -1,0 +1,9 @@
+# Granny's Route
+
+> RV safety tools, free overnight stays, and travel stories from Granny Foor — helping RVers travel safer and slower.
+
+Granny's Route is a small, family-built collection of mobile tools and writings for RV travelers. It focuses on safe routing, bridge-height checks, pre-trip prep, solar power planning, and free overnight stay information. The site also shares stories and a dedication from Granny Foor.
+
+## Pages
+
+- [Home](/): Overview of Granny's Route, the app family (GrannysRoute, RVBridgesafe, Granny's RV Garage, Pre-trip Check, Solar Weekend Power Check), stories, and dedication.
