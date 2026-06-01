@@ -1,5 +1,5 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { Facebook, Instagram, Youtube } from "lucide-react";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { BookOpen, Facebook, Instagram, Youtube } from "lucide-react";
 import heroBg from "@/assets/granny-hero.png";
 import logo from "@/assets/grannys-route-logo.png";
 import rangerSquadCover from "@/assets/ranger-squad-cover.jpg";
@@ -98,25 +98,32 @@ function Index() {
 
       {/* Stories CTA */}
       <section className="px-4 sm:px-6 md:px-12 pt-6 pb-4 max-w-3xl mx-auto text-center">
-        <a
-          href="#stories"
+        <Link
+          to="/ranger-squad"
           className="inline-block px-8 sm:px-12 md:px-16 py-4 sm:py-6 md:py-8 rounded-full font-display italic text-2xl sm:text-4xl md:text-6xl text-foreground/70 hover:text-foreground transition"
         >
           Read our Stories →
-        </a>
+        </Link>
         <div className="mt-6 flex flex-col items-center gap-3">
-          <div className="flex items-center justify-center gap-6">
+          <Link to="/ranger-squad" className="group flex items-center justify-center gap-6 hover:opacity-90 transition">
             <img
               src={rangerSquadCover}
               alt="The $5 Ranger Squad book cover by Granny and Pappy Foor"
-              className="w-28 md:w-36 rounded-md shadow-lg"
+              className="w-28 md:w-36 rounded-md shadow-lg group-hover:shadow-xl transition"
             />
             <span className="font-display italic text-accent text-xl md:text-3xl text-center">
               THE $5 RANGER SQUAD
             </span>
-          </div>
+          </Link>
+          <Link
+            to="/ranger-squad"
+            className="inline-flex items-center gap-2 mt-2 px-6 py-2 rounded-full bg-accent text-accent-foreground font-medium hover:bg-accent/90 transition"
+          >
+            <BookOpen className="w-4 h-4" />
+            Read Free Online
+          </Link>
           <p className="text-xs text-muted-foreground">
-            available on{" "}
+            also available on{" "}
             <a
               href="https://www.amazon.com/s?k=The+%245+Ranger+Squad&i=digital-text"
               target="_blank"
