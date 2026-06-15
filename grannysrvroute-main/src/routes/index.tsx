@@ -30,21 +30,25 @@ function Index() {
       style={{ backgroundImage: `url(${heroBg})` }}
     >
       {/* Nav */}
-      <header className="absolute top-0 left-0 right-0 z-20 px-[5vw] sm:px-6 md:px-12 py-6 flex items-center justify-center gap-4">
-        <span className="font-display italic text-[8vw] sm:text-4xl md:text-5xl text-primary tracking-tight leading-none whitespace-nowrap">
+      <header className="absolute top-0 left-0 right-0 z-20 px-[5vw] sm:px-6 md:px-12 py-3 sm:py-4 flex items-center justify-center gap-4">
+        <span className="font-display italic text-[4.8vw] sm:text-2xl md:text-3xl text-primary tracking-tight leading-none whitespace-nowrap">
           Granny's Route
         </span>
       </header>
 
-
-      {/* Hero */}
+      {/* Tagline below header */}
+      <div className="absolute top-[4.5rem] sm:top-20 md:top-24 left-0 right-0 z-20 flex justify-center">
+        <p className="text-xs uppercase tracking-[0.3em] text-accent">
+          Est. by hand & by heart.
+        </p>
+      </div>
       <main>
       <section className="relative flex flex-col">
         <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/55 to-background/70" />
 
 
 
-        <div className="relative z-10 px-[5vw] md:px-12 pt-[96px] max-w-3xl mx-auto text-center">
+        <div className="relative z-10 px-[5vw] md:px-12 pt-[120px] max-w-3xl mx-auto text-center">
           <h1 className="sr-only">Granny's Route — RV Safety Tools and Travel Stories</h1>
           <p className="mt-[60pt] mb-8 text-lg md:text-xl font-semibold text-foreground/80">
             An adventure awaits — safe travels, warm fires, and memorable stories.
@@ -58,12 +62,6 @@ function Index() {
             </a>
           </div>
 
-        </div>
-
-        <div className="relative z-10 mt-8 px-6 md:px-12 pb-6 flex flex-col items-center text-center gap-2">
-          <p className="text-xs uppercase tracking-[0.3em] text-accent">
-            Est. by hand & by heart.
-          </p>
         </div>
       </section>
 
