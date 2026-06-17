@@ -70,15 +70,30 @@
   h1, h2, h3 { font-family: var(--font-display); }
 }
 
+/* Optimized animations: Use transform for GPU acceleration */
 @keyframes flicker {
-  0%, 100% { opacity: 0.85; transform: translateY(0) scale(1); }
-  50% { opacity: 1; transform: translateY(-2px) scale(1.02); }
+  0%, 100% { 
+    transform: translateY(0) scaleY(1);
+    opacity: 0.85;
+  }
+  50% { 
+    transform: translateY(-2px) scaleY(1.02);
+    opacity: 1;
+  }
 }
 .animate-flicker { animation: flicker 3s ease-in-out infinite; }
 
 @keyframes drift {
-  0% { transform: translateY(0) translateX(0); opacity: 0; }
-  50% { opacity: 0.4; }
-  100% { transform: translateY(-100px) translateX(20px); opacity: 0; }
+  0% { 
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+  50% { 
+    opacity: 0.4;
+  }
+  100% { 
+    transform: translateY(-100px) translateX(20px);
+    opacity: 0;
+  }
 }
 .animate-drift { animation: drift 8s ease-out infinite; }
