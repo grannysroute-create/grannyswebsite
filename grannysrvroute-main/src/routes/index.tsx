@@ -279,7 +279,6 @@ const quickLinks: { label: string; href: string }[] = [
   { label: "Walmart", href: "https://www.walmart.com" },
   { label: "Etsy", href: "https://www.etsy.com" },
   { label: "Upside", href: "https://www.upside.com" },
-  { label: "GasBuddy", href: "https://www.gasbuddy.com" },
   { label: "Visible", href: "https://www.visible.com" },
   { label: "Kindle", href: "https://www.amazon.com/kindle-dbs/storefront" },
 ];
