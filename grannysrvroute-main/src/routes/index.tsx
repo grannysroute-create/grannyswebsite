@@ -127,12 +127,12 @@ function Index() {
             </a>{" "}
             and{" "}
             <a
-              href="https://gumroad.com/search?query=The+%245+Ranger+Squad"
+              href="https://www.lemonsqueezy.com"
               target="_blank"
               rel="noopener noreferrer"
               className="underline hover:text-accent transition"
             >
-              Gumroad
+              Lemon Squeezy
             </a>
             .
           </p>
@@ -275,7 +275,7 @@ const socialLinks: { label: string; href: string; Icon: React.ComponentType<Icon
 
 const quickLinks: { label: string; href: string }[] = [
   { label: "Amazon", href: "https://www.amazon.com" },
-  { label: "Gumroad", href: "https://gumroad.com" },
+  { label: "Lemon Squeezy", href: "https://www.lemonsqueezy.com" },
   { label: "Walmart", href: "https://www.walmart.com" },
   { label: "Etsy", href: "https://www.etsy.com" },
   { label: "Upside", href: "https://www.upside.com" },
